@@ -8,9 +8,9 @@ build:
 #  local:
 #    push: false
   googleCloudBuild:
-    projectId: ticketing-dev-327118
+    projectId: k8s-simple-shop
   artifacts:
-    - image: us.gcr.io/ticketing-dev-327118/auth
+    - image: us.gcr.io/k8s-simple-shop/auth
       context: auth
       docker:
         dockerfile: Dockerfile
