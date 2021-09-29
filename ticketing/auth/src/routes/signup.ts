@@ -27,7 +27,8 @@ async (req: Request, res: Response) => {
   }
 
   const user = User.build({
-    email, password
+    email,
+    password
   })
   await user.save();
 
