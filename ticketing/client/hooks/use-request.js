@@ -2,13 +2,12 @@ import axios from "axios"
 import { useState } from "react"
 
 export default ({ url, method, body, onSuccess }) => {
-  // method === 'post', 'get', 'patch'
-
   const [errors, setErrors] = useState(null)
 
   const doRequest = async () => {
     try {
       setErrors(null)
+      // method === 'post', 'get', 'patch'
       const response = await axios[method](url, body)
 
       if (onSuccess) {
