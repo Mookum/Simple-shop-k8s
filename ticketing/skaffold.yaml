@@ -16,3 +16,12 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+
+    - image: us.gcr.io/k8s-simple-shop/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
