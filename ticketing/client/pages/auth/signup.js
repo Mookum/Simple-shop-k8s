@@ -3,7 +3,7 @@ import useRouter from "next/router"
 import useRequest from "../../hooks/use-request"
 
 const signupForm = () => {
-  const router = useRouter()
+  const router = useRouter
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const { doRequest, errors } = useRequest({
