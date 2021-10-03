@@ -25,3 +25,12 @@ build:
         manual:
           - src: '**/*.js'
             dest: .
+
+    - image: us.gcr.io/k8s-simple-shop/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
