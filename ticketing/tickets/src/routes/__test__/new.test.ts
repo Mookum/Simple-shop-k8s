@@ -2,7 +2,7 @@ import request from "supertest"
 import { app } from '../../app'
 import { Ticket } from "../../models/ticket"
 
-it('should has a route handler listening to /api/tickets for post request', async () {
+it('should has a route handler listening to /api/tickets for post request', async () =>  {
   const response = await request(app)
     .post('/api/tickets')
     .send({})
@@ -10,14 +10,14 @@ it('should has a route handler listening to /api/tickets for post request', asyn
   expect(response.status).not.toEqual(404)
 });
 
-it('should only be accessible if the user is logged in', async () {
+it('should only be accessible if the user is logged in', async () => {
   const response = await request(app)
     .post('/api/tickets')
     .send({})
     .expect(401)
 });
 
-it('should return a status other then 401 if the user is signed in', async () {
+it('should return a status other then 401 if the user is signed in', async () => {
   const response = await request(app)
     .post('/api/tickets')
     .set('Cookie', global.getCookie())
@@ -26,7 +26,7 @@ it('should return a status other then 401 if the user is signed in', async () {
   expect(response.status).not.toEqual(401)
 });
 
-it('should return an error if an invalid title is provided', async () {
+it('should return an error if an invalid title is provided', async () => {
   await request(app)
     .post('/api/tickets')
     .set('Cookie', global.getCookie())
@@ -45,7 +45,7 @@ it('should return an error if an invalid title is provided', async () {
     .expect(400)
 });
 
-it('should return an error if an invalid price is provided', async () {
+it('should return an error if an invalid price is provided', async () => {
   await request(app)
     .post('/api/tickets')
     .set('Cookie', global.getCookie())
